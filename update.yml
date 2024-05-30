@@ -1,6 +1,10 @@
-- name: update and upgrade apt packages
-  become: true
-  apt:
-    upgrade: yes
-    update_cache: yes
-    cache_valid_time: 3600
+---
+ - name: Ansible apt module examples
+   become: true
+   tasks: 
+    - name: Ansible Update Cache and Upgrade all Packages
+      register: updatesys
+      apt:
+        name: "*"
+        state: latest
+        update_cache: yes
