@@ -3,7 +3,8 @@
    hosts: deb-hosts
    become: true
    pre_tasks: 
-    - name: Ansible Update Cache and Upgrade all Packages
-      apt:
-      update_cache: yes
-      cache_valid_time: 3600
+
+   - name: Ansible Update Cache and Upgrade all Packages
+     apt:
+       update_cache: yes
+       cache_valid_time: 3600
