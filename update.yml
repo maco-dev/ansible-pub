@@ -1,11 +1,9 @@
 ---
- - name: Ansible apt module examples
+ - name: Ansible update upgrade deb hosts 
    hosts: deb-hosts
    become: true
-   tasks: 
+   pre_tasks: 
     - name: Ansible Update Cache and Upgrade all Packages
-      register: updatesys
       apt:
-        name: "*"
-        state: latest
-        update_cache: yes
+      update_cache: yes
+      cache_valid_time: 3600
