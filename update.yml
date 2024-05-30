@@ -1,9 +1,9 @@
-- name: Update all host/vm packages
-        ansible.builtin.apt:
-                update_cache: true
-                cache_valid_time: 3600
-                name: "*"
-                state: latest
+- name: Update and upgrade apt packages
+  become: true
+  apt:
+    upgrade: yes
+    update_cache: yes
+    cache_valid_time: 3600
 - name: Check if a reboot is needed for Debian and Ubuntu boxes
       register: reboot_required_file
       stat: path=/var/run/reboot-required get_md5=no
